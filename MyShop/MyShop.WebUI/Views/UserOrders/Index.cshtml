@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<MyShop.Core.Models.Order>
 
-
 <table class="table">
     <tr>
+        
         <th>
             @Html.DisplayNameFor(model => model.CreatedAt)
         </th>
@@ -18,12 +18,15 @@
         <th>
             @Html.DisplayNameFor(model => model.OrderStatus)
         </th>
+        <td>
+            <strong>Details</strong>
+        </td>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
+@foreach (var item in Model) {
 <tr>
+  
     <td>
         @Html.DisplayFor(modelItem => item.CreatedAt)
     </td>
@@ -33,16 +36,16 @@
     <td>
         @Html.DisplayFor(modelItem => item.LastName)
     </td>
-    <th>
-        @Html.DisplayFor(model => item.Email)
-    </th>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
     <td>
         @Html.DisplayFor(modelItem => item.OrderStatus)
     </td>
-
     <td>
-        @Html.ActionLink("Manage Order", "UpdateOrder", new { id = item.Id })
+        @Html.ActionLink("Get Details", "UpdateOrder", new { id = item.Id })
     </td>
-</tr>}
+</tr>
+}
 
 </table>

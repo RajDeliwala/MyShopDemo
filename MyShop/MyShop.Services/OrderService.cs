@@ -6,10 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace MyShop.Services
 {
-    public class OrderService :IOrderService    {
+    public class OrderService : IOrderService
+    {
         IRepository<Order> orderContext;
         public OrderService(IRepository<Order> OrderContext)
         {
@@ -18,7 +20,7 @@ namespace MyShop.Services
 
         public void CreateOrder(Order baseOrder, List<BasketItemViewModel> basketItems)
         {
-            foreach(var item in basketItems)
+            foreach (var item in basketItems)
             {
                 baseOrder.OrderItems.Add(new OrderItem()
                 {
