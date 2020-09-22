@@ -91,7 +91,8 @@ namespace MyShop.WebUI.Controllers
                 }
                 if (file != null)
                 {
-                    productToEdit.Image = product.Id + Path.GetExtension(file.FileName);
+                    productToEdit.Image = product.Id + DateTime.Now.Ticks.ToString() + Path.GetExtension(file.FileName) ;
+                    
                     file.SaveAs(Server.MapPath("//Content//ProductImages//") + productToEdit.Image);
                 }
 
